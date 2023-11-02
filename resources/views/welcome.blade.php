@@ -1,100 +1,113 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+@extends('layouts.public')
+@section('contenido')
+    <!-- banner -->
+    <div class="banner">
+        <img src="{{ asset('images/photos/banner.jpg') }}" class="img-responsive" alt="slide">
+        <div class="welcome-message">
+            <div class="wrap-info">
+                <div class="information">
+                    <h1 class="animated fadeInDown">Best hotel in Dubai</h1>
+                    <p class="animated fadeInUp">Most luxurious hotel of asia with the royal treatments and excellent
+                        customer service.</p>
                 </div>
-            @endif
+                <a href="#information" class="arrow-nav scroll wowload fadeInDownBig"><i class="fa fa-angle-down"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- banner-->
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+
+    <!-- reservation-information -->
+    <div id="information" class="spacer reserve-info ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7 col-md-8">
+                    <div class="embed-responsive embed-responsive-16by9 wowload fadeInLeft"><iframe
+                            class="embed-responsive-item" src="//player.vimeo.com/video/55057393?title=0" width="100%"
+                            height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                            allowfullscreen></iframe></div>
+                </div>
+                @livewire('booking-component')
+            </div>
+        </div>
+    </div>
+    <!-- reservation-information -->
+
+
+
+    <!-- services -->
+    <div class="spacer services wowload fadeInUp">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- RoomCarousel -->
+                    <div id="RoomCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active"><img src="{{ asset('images/photos/8.jpg') }}" class="img-responsive"
+                                    alt="slide"></div>
+                            <div class="item  height-full"><img src="{{ asset('images/photos/9.jpg') }}"
+                                    class="img-responsive" alt="slide"></div>
+                            <div class="item  height-full"><img src="{{ asset('images/photos/10.jpg') }}"
+                                    class="img-responsive" alt="slide"></div>
+                        </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#RoomCarousel" role="button" data-slide="prev"><i
+                                class="fa fa-angle-left"></i></a>
+                        <a class="right carousel-control" href="#RoomCarousel" role="button" data-slide="next"><i
+                                class="fa fa-angle-right"></i></a>
+                    </div>
+                    <!-- RoomCarousel-->
+                    <div class="caption">Rooms<a href="rooms-tariff.php" class="pull-right"><i class="fa fa-edit"></i></a>
+                    </div>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+
+                <div class="col-sm-4">
+                    <!-- RoomCarousel -->
+                    <div id="TourCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active"><img src="{{ asset('images/photos/6.jpg') }}" class="img-responsive"
+                                    alt="slide"></div>
+                            <div class="item  height-full"><img src="{{ asset('images/photos/3.jpg') }}"
+                                    class="img-responsive" alt="slide"></div>
+                            <div class="item  height-full"><img src="{{ asset('images/photos/4.jpg') }}"
+                                    class="img-responsive" alt="slide"></div>
+                        </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#TourCarousel" role="button" data-slide="prev"><i
+                                class="fa fa-angle-left"></i></a>
+                        <a class="right carousel-control" href="#TourCarousel" role="button" data-slide="next"><i
+                                class="fa fa-angle-right"></i></a>
+                    </div>
+                    <!-- RoomCarousel-->
+                    <div class="caption">Tour Packages<a href="gallery.php" class="pull-right"><i
+                                class="fa fa-edit"></i></a></div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <!-- RoomCarousel -->
+                    <div id="FoodCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active"><img src="{{ asset('images/photos/1.jpg') }}"
+                                    class="img-responsive" alt="slide"></div>
+                            <div class="item  height-full"><img src="{{ asset('images/photos/2.jpg') }}"
+                                    class="img-responsive" alt="slide"></div>
+                            <div class="item  height-full"><img src="{{ asset('images/photos/5.jpg') }}"
+                                    class="img-responsive" alt="slide"></div>
+                        </div>
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#FoodCarousel" role="button" data-slide="prev"><i
+                                class="fa fa-angle-left"></i></a>
+                        <a class="right carousel-control" href="#FoodCarousel" role="button" data-slide="next"><i
+                                class="fa fa-angle-right"></i></a>
+                    </div>
+                    <!-- RoomCarousel-->
+                    <div class="caption">Food and Drinks<a href="gallery.php" class="pull-right"><i
+                                class="fa fa-edit"></i></a></div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+    <!-- services -->
+@endsection
